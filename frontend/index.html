@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="QueueCare - Smart Clinic Appointment and Live Queue Management">
+    <title>QueueCare | Clinic Management</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <a href="#" class="logo">
+            <span class="logo-icon">✚</span>
+            <span>QueueCare</span>
+        </a>
+
+        <nav class="navigation">
+            <a href="#dashboard" class="active">Dashboard</a>
+            <a href="#appointments">Appointments</a>
+            <a href="#queue">Live Queue</a>
+        </nav>
+
+        <div class="profile">
+            <div class="profile-avatar">A</div>
+            <span>Admin</span>
+        </div>
+    </header>
+
+    <main class="container" id="dashboard">
+
+        <section class="welcome">
+            <div>
+                <p class="eyebrow">CLINIC MANAGEMENT</p>
+                <h1>Good day, Admin! 👋</h1>
+                <p class="subtitle">
+                    Manage appointments and keep your clinic running smoothly.
+                </p>
+            </div>
+            <button class="primary-button" id="bookAppointment">
+                + Book Appointment
+            </button>
+        </section>
+
+        <section class="stats">
+            <article class="stat-card">
+                <div class="stat-icon blue">▣</div>
+                <p>Total Appointments</p>
+                <h2 id="totalAppointments">24</h2>
+                <span>Today's schedule</span>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon green">✓</div>
+                <p>Completed</p>
+                <h2>08</h2>
+                <span>Patients attended</span>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon orange">◷</div>
+                <p>Waiting</p>
+                <h2>06</h2>
+                <span>In the queue</span>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon purple">♡</div>
+                <p>Available Doctors</p>
+                <h2>04</h2>
+                <span>On today's schedule</span>
+            </article>
+        </section>
+
+        <section class="content-grid">
+
+            <article class="panel" id="appointments">
+                <div class="panel-heading">
+                    <div>
+                        <h2>Today's Appointments</h2>
+                        <p>Overview of scheduled visits</p>
+                    </div>
+                    <a href="#appointments" class="view-link">View all →</a>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Patient</th>
+                                <th>Doctor</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="appointmentList">
+                            <tr>
+                                <td>
+                                    <div class="patient">
+                                        <span class="patient-avatar">RK</span>
+                                        <span>Rahul Kumar</span>
+                                    </div>
+                                </td>
+                                <td>Dr. Sharma</td>
+                                <td>09:30 AM</td>
+                                <td><span class="status completed">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="patient">
+                                        <span class="patient-avatar">PS</span>
+                                        <span>Priya Singh</span>
+                                    </div>
+                                </td>
+                                <td>Dr. Mehta</td>
+                                <td>10:00 AM</td>
+                                <td><span class="status waiting">Waiting</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="patient">
+                                        <span class="patient-avatar">AM</span>
+                                        <span>Arjun Mehta</span>
+                                    </div>
+                                </td>
+                                <td>Dr. Reddy</td>
+                                <td>10:30 AM</td>
+                                <td><span class="status consultation">In Progress</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="patient">
+                                        <span class="patient-avatar">NS</span>
+                                        <span>Neha Sharma</span>
+                                    </div>
+                                </td>
+                                <td>Dr. Sharma</td>
+                                <td>11:00 AM</td>
+                                <td><span class="status scheduled">Scheduled</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <aside class="panel queue-panel" id="queue">
+                <div class="panel-heading">
+                    <div>
+                        <h2>Live Queue</h2>
+                        <p>Current patient flow</p>
+                    </div>
+                    <span class="live-indicator">● Live</span>
+                </div>
+
+                <div class="queue-number">
+                    <span>Now consulting</span>
+                    <strong>#03</strong>
+                    <small>Dr. Reddy</small>
+                </div>
+
+                <div class="queue-details">
+                    <div>
+                        <span>Patients waiting</span>
+                        <strong>06</strong>
+                    </div>
+                    <div>
+                        <span>Est. wait time</span>
+                        <strong>30 min</strong>
+                    </div>
+                </div>
+
+                <button class="secondary-button" id="viewQueue">
+                    View Queue
+                </button>
+            </aside>
+
+        </section>
+
+        <footer>
+            <p>© 2026 QueueCare. Smart clinic management.</p>
+            <p>Demo dashboard · Sample data only</p>
+        </footer>
+
+    </main>
+
+ <script src="/static/script.js"></script>
+</body>
+</html>
