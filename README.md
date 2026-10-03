@@ -15,4 +15,4 @@ QueueCare is a simple clinic management system that helps manage patient appoint
 
 **HTML • CSS • JavaScript • Python • FastAPI • SQLite**
 
-Built as a practical project to learn backend development, APIs, databases, and frontend integration.
+still building in progress
