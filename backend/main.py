@@ -105,3 +105,86 @@ def get_appointments():
         ]
     finally:
         db.close()
+
+
+
+        
+# Update appointment status
+class AppointmentStatusUpdate(BaseModel):
+    status: str
+
+@app.patch("/appointments/{appointment_id}/status")
+def update_appointment_status(
+    appointment_id: int,
+    update: AppointmentStatusUpdate
+):
+    allowed_statuses = [
+        "Scheduled",
+        "Waiting",
+        "In Progress",
+        "Completed"
+    ]
+
+    if update.status not in allowed_statuses:
+        raise HTTPException(
+            status_code=400,
+            detail="Invalid appointment status"
+        )
+
+    db: Session = SessionLocal()
+
+    try:
+        appointment = db.query(Appointment).filter(
+            Appointment.id == appointment_id
+        ).first()
+
+        if appointment is None:
+            raise HTTPException(
+                status_code=404,
+                detail="Appointment not found"
+            )
+
+        appointment.status = update.status
+        db.commit()
+        db.refresh(appointment)
+
+        return {
+            "message": "Appointment status updated",
+            "id": appointment.id,
+            "patient_name": appointment.patient_name,
+            "doctor_name": appointment.doctor_name,
+            "appointment_time": appointment.appointment_time,
+            "status": appointment.status
+        }
+
+    finally:
+        db.close()
+
+        
+# Dashboard statistics
+@app.get("/stats")
+def get_dashboard_stats():
+    db: Session = SessionLocal()
+
+    try:
+        total = db.query(Appointment).count()
+
+        completed = db.query(Appointment).filter(
+            Appointment.status == "Completed"
+        ).count()
+
+        waiting = db.query(Appointment).filter(
+            Appointment.status == "Waiting"
+        ).count()
+
+        doctors = db.query(Appointment.doctor_name).distinct().count()
+
+        return {
+            "total_appointments": total,
+            "completed": completed,
+            "waiting": waiting,
+            "available_doctors": doctors
+        }
+
+    finally:
+        db.close()

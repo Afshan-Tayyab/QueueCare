@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,28 +47,28 @@
             <article class="stat-card">
                 <div class="stat-icon blue">▣</div>
                 <p>Total Appointments</p>
-                <h2 id="totalAppointments">24</h2>
+                <h2 id="totalAppointments">0</h2>
                 <span>Today's schedule</span>
             </article>
 
             <article class="stat-card">
                 <div class="stat-icon green">✓</div>
                 <p>Completed</p>
-                <h2>08</h2>
+                <h2 id="completedAppointments">0</h2>
                 <span>Patients attended</span>
             </article>
 
             <article class="stat-card">
                 <div class="stat-icon orange">◷</div>
                 <p>Waiting</p>
-                <h2>06</h2>
+                <h2 id="waitingAppointments">0</h2>
                 <span>In the queue</span>
             </article>
 
             <article class="stat-card">
                 <div class="stat-icon purple">♡</div>
                 <p>Available Doctors</p>
-                <h2>04</h2>
+                <h2 id="availableDoctors">0</h2>
                 <span>On today's schedule</span>
             </article>
         </section>
@@ -155,18 +155,18 @@
 
                 <div class="queue-number">
                     <span>Now consulting</span>
-                    <strong>#03</strong>
-                    <small>Dr. Reddy</small>
+                    <strong id="currentQueueNumber">—</strong>
+                    <small id="currentDoctor">No patient in consultation</small>
                 </div>
 
                 <div class="queue-details">
                     <div>
                         <span>Patients waiting</span>
-                        <strong>06</strong>
+                        <strong id="queueWaiting">0</strong>
                     </div>
                     <div>
                         <span>Est. wait time</span>
-                        <strong>30 min</strong>
+                        <strong id="estimatedWait">0 min</strong>
                     </div>
                 </div>
 
@@ -184,6 +184,7 @@
 
     </main>
 
- <script src="/static/script.js"></script>
+    <script src="/static/script.js"></script>
 </body>
 </html>
+```
